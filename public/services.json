@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "img": "https://image.freepik.com/free-photo/dentist-examining-female-patient-with-tools_107420-74189.jpg",
+        "serviceName": "Dental Sugery",
+        "details": "Dentists inject anesthetic to block sensory transmission by the alveolar nerves. The superior alveolar nerves are not usually anesthetized directly because they are difficult to approach with a needle. For this reason, the maxillary teeth are usually anesthetized locally by inserting the needle beneath the oral mucosa surrounding the teeth. The inferior alveolar nerve is probably anesthetized more often than any other nerve in the body. To anesthetize this nerve, the dentist inserts the needle somewhat beyond the patient’s last molar."
+    },
+    {
+        "id": 2,
+        "img": "https://image.freepik.com/free-photo/world-diabetes-awareness-day-white-refined-sugar-caliper-measuring-tape-scattered-pills-blister-with-medicines-insulin-syringe-with-copy-space-center-blue-colored-background-flat-lay_328764-4997.jpg",
+        "serviceName": "Diabetes Center",
+        "details": "The Johns Hopkins Comprehensive Diabetes Center is committed to helping you or your loved one successfully manage diabetes using the latest information, treatments, and technology available. While there is currently no cure for diabetes, it can be controlled, allowing people to have full, productive lives. By integrating diet, oral medication or insulin, and patient education, the Diabetes Center works to achieve the best possible outcomes, helping people with diabetes to live long and healthy lives.Hopkins is a leader in serving people with diabetes. Consistently ranked as one "
+    },
+    {
+        "id": 3,
+        "img": "https://image.freepik.com/free-photo/doctor-talking-about-efect-heart-attack-pointing-tablet-pc-during-senior-woman-examination_482257-8467.jpg",
+        "serviceName": "Cardiology",
+        "details": "Recognized Worldwide Our team of over 100 cardiologists ensures that you receive the most appropriate and advanced treatments known to medicine."
+    },
+    {
+        "id": 4,
+        "img": "https://image.freepik.com/free-photo/surgeons-wearing-surgical-loupes-while-performing-operation_107420-64893.jpg",
+        "serviceName": "Surgery",
+        "details": "The Johns Hopkins Department of Surgery strives to deliver the highest quality care to patients, consistently redefining excellence in research to create the next generation of surgical leaders and and find the best treatments for our patients."
+    },
+    {
+        "id": 5,
+        "img": "https://image.freepik.com/free-photo/researcher-looking-monitor-analysing-brain-scan-while-coworker-discussing-with-patient-background-about-side-effects-mind-functions-nervous-system-tomography-scan-working-laboratory_482257-13071.jpg",
+        "serviceName": "Neurology & Neurosurgery",
+        "details": "Neurologists and neurosurgeons typically see patients in one of two buildings on The Johns Hopkins Hospital campus: either the main hospital building at 1800 Orleans Street or the Outpatient Center at 601 N. Caroline Street. Some pediatric patients may also been at the Harriet Lane Clinic."
+    },
+    {
+        "id": 6,
+        "img": "https://image.freepik.com/free-photo/happy-curly-woman-holds-periods-calendar_273609-30566.jpg",
+        "serviceName": "Gynecology and Obstetrics",
+        "details": "At Johns Hopkins Medicine, your health and safety are our very highest priorities. We are ready to care for you and your family in our hospitals, surgery centers, and through in-person clinic and online video visits. Learn how we are keeping you safe and protected so that you can get the care you need."
+    }
+]
