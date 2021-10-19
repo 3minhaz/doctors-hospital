@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Shared/Header/Header';
@@ -13,6 +13,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Details from './pages/Details/Details';
 import Footer from './Shared/Footer/Footer';
 import Shop from './pages/Shop/Shop';
+import Contact from './pages/Contact/Contact';
 
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
             <PrivateRoute path="/shop">
               <Shop></Shop>
             </PrivateRoute>
+            <Route path='/contact'>
+              <Contact></Contact>
+            </Route>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

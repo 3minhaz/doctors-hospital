@@ -10,7 +10,6 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const history = useHistory();
     const location = useLocation();
-    console.log('came from', location.state?.from);
     const redirect_uri = location?.state?.from || '/home';
 
     const handleLogin = () => {
@@ -57,7 +56,7 @@ const Login = () => {
                 <br />
                 <input onBlur={handlePassword} type="password" name="" id="" required />
                 <br />
-                <input className="btn btn-danger mt-3" type="submit" value="Sign in" />
+                <input className="btn btn-success mt-3" type="submit" value="Sign in" />
             </form>
             <button onClick={handleLogin} className="btn btn-primary  my-3"><i className="fab fa-google me-1"></i> Google sign in</button>
             <p>not registered?<Link to="/register">register</Link></p>

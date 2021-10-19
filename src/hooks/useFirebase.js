@@ -1,5 +1,5 @@
 import initializeAuthentication from "../Firebase/firebase.init";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 initializeAuthentication();
@@ -33,17 +33,17 @@ const useFirebase = () => {
         return signInWithEmailAndPassword(auth, email, password)
 
     }
-    const userName = (name) => {
-        // const auth = getAuth();
-        updateProfile(auth.currentUser, { displayName: name })
-            .then(result => {
+    // const userName = (name) => {
+    //     // const auth = getAuth();
+    //     updateProfile(auth.currentUser, { displayName: name })
+    //         .then(result => {
 
-            })
-            .catch((error) => {
-                // An error occurred
-                // ...
-            });
-    }
+    //         })
+    //         .catch((error) => {
+    //             // An error occurred
+    //             // ...
+    //         });
+    // }
 
     const logout = () => {
         signOut(auth)

@@ -11,9 +11,9 @@ const Details = () => {
             .then(data => setDetails(data))
     }, [])
 
-    const newId = parseInt(id);
+
     useEffect(() => {
-        const foundDetail = details.find(detail => detail.id === newId)
+        const foundDetail = details.find(detail => detail.id === parseInt(id))
         setSingleId(foundDetail);
     }, [details])
 

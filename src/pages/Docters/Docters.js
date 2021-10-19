@@ -1,11 +1,10 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import useAuth from '../../hooks/useAuth';
 
 
 const Docters = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { user } = useAuth()
+
     return (
         <div className="text-center my-5">
             <h2>please give your information to take appoinment</h2>
