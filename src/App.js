@@ -6,8 +6,12 @@ import Home from './pages/Home/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import AuthProvider from './pages/AuthProvider/AuthProvider';
-import PrivateRoute from './Shared/Header/PrivateRoute';
+import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import Docters from './pages/Docters/Docters';
+import Services from './pages/Home/Services/Services';
+import NotFound from './pages/NotFound/NotFound';
+import Details from './pages/Details/Details';
+import Footer from './Shared/Footer/Footer';
 
 
 function App() {
@@ -17,9 +21,19 @@ function App() {
         <Router>
           <Header></Header>
           <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
             <Route path="/home">
               <Home></Home>
             </Route>
+            <Route exact path="/services">
+              <Services></Services>
+            </Route>
+            <PrivateRoute path="/services/:id">
+              {/* <Services></Services> */}
+              <Details></Details>
+            </PrivateRoute>
             <Route path='/login'>
               <Login></Login>
             </Route>
@@ -29,7 +43,11 @@ function App() {
             <PrivateRoute path="/appoinment">
               <Docters></Docters>
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>

@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
-import { getAuth, updateProfile } from "firebase/auth";
+import { getAuth, updateProfile, createUserWithEmailAndPassword } from "firebase/auth";
 import useAuth from '../../hooks/useAuth';
 
 
 
 const Register = () => {
-    const { registerNewUser, error, setError } = useAuth();
+    const { registerNewUser, error, setError, userName, auth } = useAuth();
+    const history = useHistory();
+    const location = useLocation();
+    const redirect_uri = location?.state?.from || '/home';
+
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -23,13 +27,36 @@ const Register = () => {
         setName(e.target.value)
     }
     const handleRegister = e => {
+
         e.preventDefault();
-        console.log(email, password);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                // userName(name);
+                // verifyEmail()
+                updateProfile(auth.currentUser, { displayName: name })
+                    .then(result => {
+
+                    })
+                    .catch((error) => {
+                        // An error occurred
+                        // ...
+                    });
+                history.push(redirect_uri)
+
+            })
+            .catch(error => {
+                setError('!!already registered');
+            })
+        // console.log(email, password);
         if (password.length < 6) {
             setError('password must be 6 in length')
             return;
         }
-        registerNewUser(email, password, name);
+
+        // registerNewUser(email, password, name);
         // userName();
     }
 

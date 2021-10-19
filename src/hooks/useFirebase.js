@@ -15,18 +15,18 @@ const useFirebase = () => {
 
     const registerNewUser = (email, password, name) => {
         console.log(name);
-        createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password)
 
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                setError('');
-                userName(name);
-                // verifyEmail()
-            })
-            .catch(error => {
-                setError('!!already registered');
-            })
+        // .then(result => {
+        //     const user = result.user;
+        //     console.log(user);
+        //     setError('');
+        //     userName(name);
+        //     // verifyEmail()
+        // })
+        // .catch(error => {
+        //     setError('!!already registered');
+        // })
     }
 
     const processLogin = (email, password) => {
@@ -64,6 +64,7 @@ const useFirebase = () => {
         signInUsingGoogle,
         registerNewUser,
         processLogin,
+        auth,
         error,
         setError,
         logout
