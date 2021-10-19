@@ -1,6 +1,6 @@
 # Description of  project
 
-Doctors Hospital live site: [Create React App](https://health-care-system-d5cf1.firebaseapp.com/).
+Doctors Hospital live site: [click here ](https://health-care-system-d5cf1.firebaseapp.com/).
 
 ## Project Details:
 - Hospital related
