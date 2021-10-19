@@ -5,24 +5,33 @@ import Header from './Shared/Header/Header';
 import Home from './pages/Home/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import AuthProvider from './pages/AuthProvider/AuthProvider';
+import PrivateRoute from './Shared/Header/PrivateRoute';
+import Docters from './pages/Docters/Docters';
+
 
 function App() {
   return (
     <div >
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path='/login'>
-            <Login></Login>
-          </Route>
-          <Route path='/register'>
-            <Register></Register>
-          </Route>
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path='/login'>
+              <Login></Login>
+            </Route>
+            <Route path='/register'>
+              <Register></Register>
+            </Route>
+            <PrivateRoute path="/appoinment">
+              <Docters></Docters>
+            </PrivateRoute>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

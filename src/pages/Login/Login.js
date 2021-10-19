@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+
 
 const Login = () => {
-    const { registerNewUser, error, setError, processLogin, signInUsingGoogle } = useFirebase()
+    const { error, setError, processLogin, signInUsingGoogle } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const history = useHistory();
+    const location = useLocation();
+    console.log('came from', location.state?.from);
+    const redirect_uri = location?.state?.from || '/home';
+
+    const handleLogin = () => {
+        signInUsingGoogle()
+            .then(result => {
+                history.push(redirect_uri);
+            })
+    }
     const handlePassword = e => {
         setPassword(e.target.value);
     }
@@ -20,6 +32,15 @@ const Login = () => {
             return;
         }
         processLogin(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                history.push(redirect_uri)
+            })
+            .catch(error => {
+                setError('not registered yet,please register to login');
+            })
 
     }
     return (
@@ -37,7 +58,7 @@ const Login = () => {
                 <br />
                 <input type="submit" value="sign in" />
             </form>
-            <button onClick={signInUsingGoogle} className="btn btn-warning my-3">Google sign in</button>
+            <button onClick={handleLogin} className="btn btn-warning my-3">Google sign in</button>
             <p>not registered?<Link to="/register">register</Link></p>
         </div >
     );

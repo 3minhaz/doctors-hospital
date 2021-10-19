@@ -3,11 +3,12 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
 import { getAuth, updateProfile } from "firebase/auth";
+import useAuth from '../../hooks/useAuth';
 
 
 
 const Register = () => {
-    const { registerNewUser, error, setError, processLogin } = useFirebase()
+    const { registerNewUser, error, setError } = useAuth();
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');

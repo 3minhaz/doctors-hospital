@@ -9,10 +9,8 @@ const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const signInUsingGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user)
-            })
+        return signInWithPopup(auth, googleProvider)
+
     }
 
     const registerNewUser = (email, password, name) => {
@@ -32,15 +30,8 @@ const useFirebase = () => {
     }
 
     const processLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                setError('');
-            })
-            .catch(error => {
-                setError('not registered yet,please register to login');
-            })
+        return signInWithEmailAndPassword(auth, email, password)
+
     }
     const userName = (name) => {
         // const auth = getAuth();
