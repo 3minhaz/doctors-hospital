@@ -12,6 +12,7 @@ import Services from './pages/Home/Services/Services';
 import NotFound from './pages/NotFound/NotFound';
 import Details from './pages/Details/Details';
 import Footer from './Shared/Footer/Footer';
+import Shop from './pages/Shop/Shop';
 
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
             </Route>
             <PrivateRoute path="/appoinment">
               <Docters></Docters>
+            </PrivateRoute>
+            <PrivateRoute path="/shop">
+              <Shop></Shop>
             </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>

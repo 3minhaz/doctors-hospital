@@ -3,6 +3,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 
+
 const Login = () => {
     const { error, setError, processLogin, signInUsingGoogle } = useAuth();
     const [email, setEmail] = useState('');
@@ -56,9 +57,9 @@ const Login = () => {
                 <br />
                 <input onBlur={handlePassword} type="password" name="" id="" required />
                 <br />
-                <input type="submit" value="sign in" />
+                <input className="btn btn-danger mt-3" type="submit" value="Sign in" />
             </form>
-            <button onClick={handleLogin} className="btn btn-warning my-3">Google sign in</button>
+            <button onClick={handleLogin} className="btn btn-primary  my-3"><i className="fab fa-google me-1"></i> Google sign in</button>
             <p>not registered?<Link to="/register">register</Link></p>
         </div >
     );

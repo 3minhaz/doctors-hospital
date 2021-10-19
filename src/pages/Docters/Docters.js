@@ -1,9 +1,28 @@
 import React from 'react';
+import { useForm } from "react-hook-form";
+import useAuth from '../../hooks/useAuth';
+
 
 const Docters = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { user } = useAuth()
     return (
-        <div>
-            <p>This is dr.</p>
+        <div className="text-center my-5">
+            <h2>please give your information to take appoinment</h2>
+            <form className={"shipping-form"} onSubmit={handleSubmit()}>
+                <input className="mb-2 rounded" placeholder="your name" {...register("name")} />
+                <br />
+                <input className="mb-2 rounded" placeholder="email" {...register("email", { required: true })} />
+                <br />
+                {errors.email && <span className="error"> This field is required</span>}
+                <input className="mb-2 rounded" placeholder="address" defaultValue="" {...register("address")} />
+                <br />
+                <input className="mb-2 rounded" placeholder="city" defaultValue="" {...register("city")} />
+                <br />
+                <input className="mb-2 rounded" placeholder="phone number" defaultValue="" {...register("phone")} />
+                <br />
+                <input type="submit" />
+            </form>
         </div>
     );
 };

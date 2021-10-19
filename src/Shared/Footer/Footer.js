@@ -1,24 +1,39 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { } from '@fortawesome/free-solid-svg-icons'
+
+
 
 const Footer = () => {
     return (
         <div>
-            <div className="row p-5 mx-1 bg-black text-white ">
+            <div style={{ backgroundColor: "#50626f" }} className="row p-5 mx-1  text-white ">
                 <div className="col-md-4 ">
-                    <li>about</li>
-                    <li>Open Hours</li>
-                    <li>Mn – St: 8:00am – 9:00pm Sn: Closed</li>
+                    <h5 className="pb-4">Latest news & tips</h5>
+                    <p>Patients & Visitors</p>
+                    <p>Medical Services and Care</p>
+                    <p>Community Health</p>
                 </div>
-                <div className="col-md-4">
-                    <li>Our Address</li>
-                    <li>528 tenth Avenue, Boston, BT 58965</li>
-                    <li></li>
+                <div className="col-md-4 ">
+                    <h5 className="pb-4">Contact us</h5>
+                    <div>
+                        <small>Sundays @ 10:00am</small><br />
+                        <small>London, UK</small><br />
+                        <small>10, Firs Avenue, Muswell Hill,</small>
+                    </div>
+                    <div>
+                        <small>Tel: 02 562-958 , </small>
+                        <small>Mobile: 02 562-95</small><br />
+                        <small>10, Firs Avenue, Muswell Hill,</small>
+                    </div>
                 </div>
-                <div className="col-md-4">
-                    <li>Contact Us</li>
-                    <li>Don not hesitate to contact Us!</li>
-                    <li></li>
+                <div className="col-md-4 ">
+                    <h5 className="pb-4">Stay Connected</h5>
+                    <p>facebook </p>
+                    <p>Twitter</p>
+                    <p>Google+</p>
                 </div>
+
             </div>
         </div>
     );
