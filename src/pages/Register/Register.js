@@ -7,10 +7,10 @@ import useAuth from '../../hooks/useAuth';
 
 
 const Register = () => {
-    const { error, setError, auth, setIsLoading } = useAuth();
+    const { error, setError, auth, setIsLoading, logout } = useAuth();
     const history = useHistory();
     const location = useLocation();
-    const redirect_uri = location?.state?.from || '/home';
+    const redirect_uri = location?.state?.from || '/login';
 
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
@@ -35,8 +35,9 @@ const Register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                setError('');
+
+                logout();
+                setError('successfully register,please login');
                 //update profile
                 updateProfile(auth.currentUser, { displayName: name })
                     .then(result => {
@@ -51,8 +52,9 @@ const Register = () => {
             })
             .finally(setIsLoading(false))
             .catch(error => {
-                setError('!!already registered');
+                setError('!!already registered, please login');
             })
+
         if (password.length < 6) {
             setError('password must be 6 in length')
             return;

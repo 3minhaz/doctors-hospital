@@ -28,21 +28,23 @@ const Login = () => {
     }
     const handleSignIn = e => {
         e.preventDefault();
-        console.log(email, password);
+        // console.log(email, password);
         if (password.length < 6) {
             setError('password must be 6 in length')
             return;
         }
         processLogin(email, password)
+
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                setError('');
                 history.push(redirect_uri)
+                setError('');
+
             })
             .finally(() => setIsLoading(false))
             .catch(error => {
-                setError('not registered yet,please register to login');
+                setError(error.message);
             })
 
     }
