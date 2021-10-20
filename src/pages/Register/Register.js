@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth';
 
 
 const Register = () => {
-    const { error, setError, auth } = useAuth();
+    const { error, setError, auth, setIsLoading } = useAuth();
     const history = useHistory();
     const location = useLocation();
     const redirect_uri = location?.state?.from || '/home';
@@ -45,6 +45,7 @@ const Register = () => {
                 history.push(redirect_uri)
 
             })
+            .finally(setIsLoading(false))
             .catch(error => {
                 setError('!!already registered');
             })

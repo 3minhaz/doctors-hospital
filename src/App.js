@@ -12,8 +12,9 @@ import Services from './pages/Home/Services/Services';
 import NotFound from './pages/NotFound/NotFound';
 import Details from './pages/Details/Details';
 import Footer from './Shared/Footer/Footer';
-import Shop from './pages/Shop/Shop';
+
 import Contact from './pages/Contact/Contact';
+import PayBill from './pages/PayBill/PayBill';
 
 
 function App() {
@@ -45,8 +46,8 @@ function App() {
             <PrivateRoute path="/appoinment">
               <Docters></Docters>
             </PrivateRoute>
-            <PrivateRoute path="/shop">
-              <Shop></Shop>
+            <PrivateRoute path="/paybill">
+              <PayBill></PayBill>
             </PrivateRoute>
             <Route path='/contact'>
               <Contact></Contact>

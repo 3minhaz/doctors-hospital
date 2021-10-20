@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import google from '../../images/Google-removebg-preview.png';
 
 
 
 const Login = () => {
-    const { error, setError, processLogin, signInUsingGoogle } = useAuth();
+    const { error, setError, processLogin, signInUsingGoogle, isLoading, setIsLoading } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
@@ -17,6 +18,7 @@ const Login = () => {
             .then(result => {
                 history.push(redirect_uri);
             })
+            .finally(() => setIsLoading(false))
     }
     const handlePassword = e => {
         setPassword(e.target.value);
@@ -38,6 +40,7 @@ const Login = () => {
                 setError('');
                 history.push(redirect_uri)
             })
+            .finally(() => setIsLoading(false))
             .catch(error => {
                 setError('not registered yet,please register to login');
             })
@@ -58,7 +61,7 @@ const Login = () => {
                 <br />
                 <input className="btn btn-success mt-3" type="submit" value="Sign in" />
             </form>
-            <button onClick={handleLogin} className="btn btn-primary  my-3"><i className="fab fa-google me-1"></i> Google sign in</button>
+            <button onClick={handleLogin} className="btn btn-white border border-2 my-3"> <span><img height="25px" src={google} alt="" /></span> Login with Google</button>
             <p>not registered?<Link to="/register">register</Link></p>
         </div >
     );

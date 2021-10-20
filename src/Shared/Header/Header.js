@@ -6,6 +6,7 @@ import { HashLink } from 'react-router-hash-link';
 import useFirebase from '../../hooks/useFirebase';
 
 
+
 const Header = () => {
     const { user, logout } = useFirebase();
     return (
@@ -18,9 +19,10 @@ const Header = () => {
                     <Nav.Link className="text-white" as={HashLink} to="/home#banner">Home</Nav.Link>
                     <Nav.Link className="text-white" as={HashLink} to="/home#services">Services</Nav.Link>
                     <Nav.Link className="text-white" as={Link} to="/appoinment">Appoinment</Nav.Link>
-                    <Nav.Link className="text-white" as={Link} to="/shop">Shop</Nav.Link>
+                    <Nav.Link className="text-white" as={Link} to="/paybill">Bill Pay</Nav.Link>
                     <Nav.Link className="text-white" as={Link} to="/contact">Contact</Nav.Link>
                     {!user.email && <Nav.Link className="text-white" as={Link} to="/login">Login</Nav.Link>}
+                    {!user.email && <Nav.Link className="text-white" as={Link} to="/register">Register</Nav.Link>}
                     {user?.email ? <Button onClick={logout} variant="light me-2">Logout </Button> :
                         <Nav.Link as={Link} to="/login">Login</Nav.Link>}
 

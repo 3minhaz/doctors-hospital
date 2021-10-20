@@ -6,15 +6,17 @@ initializeAuthentication();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(true)
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const signInUsingGoogle = () => {
+        setIsLoading(true)
         return signInWithPopup(auth, googleProvider)
 
     }
 
     const registerNewUser = (email, password, name) => {
-        console.log(name);
+        setIsLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
 
         // .then(result => {
@@ -30,6 +32,7 @@ const useFirebase = () => {
     }
 
     const processLogin = (email, password) => {
+        setIsLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
 
     }
@@ -46,8 +49,10 @@ const useFirebase = () => {
     // }
 
     const logout = () => {
+        setIsLoading(true);
         signOut(auth)
             .then(() => { })
+            .finally(() => setIsLoading(false))
     }
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -57,6 +62,7 @@ const useFirebase = () => {
             else {
                 setUser({});
             }
+            setIsLoading(false);
         })
     }, [])
     return {
@@ -64,6 +70,8 @@ const useFirebase = () => {
         signInUsingGoogle,
         registerNewUser,
         processLogin,
+        isLoading,
+        setIsLoading,
         auth,
         error,
         setError,
