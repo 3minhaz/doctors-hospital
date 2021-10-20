@@ -15,18 +15,22 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
-
+    //taking password from user
     const handlePassword = e => {
         setPassword(e.target.value);
     }
+    //taking usern email from user
     const handleEmailChange = e => {
         setEmail(e.target.value)
     }
+
+    //taking user name 
     const handleDisplayName = e => {
         setName(e.target.value)
     }
-    const handleRegister = e => {
 
+    //register new user
+    const handleRegister = e => {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
@@ -80,7 +84,7 @@ const Register = () => {
                     Register
                 </Button>
             </Form>
-            <p>already registered?<Link to='/login'>click to login</Link></p>
+            <p>Already registered? <Link className="text-decoration-none" to='/login'>Click to login</Link></p>
         </div>
     );
 };

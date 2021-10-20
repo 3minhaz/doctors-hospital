@@ -15,7 +15,7 @@ const Banner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>Just Make An Appoinment</h3>
+                        <h3>Just Make An Appointment</h3>
                         <p>Get The Right Care Book With Your Doctors!</p>
                     </Carousel.Caption>
                 </Carousel.Item>

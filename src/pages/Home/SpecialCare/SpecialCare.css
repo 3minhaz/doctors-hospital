@@ -4,3 +4,9 @@
 .card-height{
     height: 180px;
 }
+@media only screen  and (max-width:600px){
+    .card-height{
+        height: 200px;
+    }
+    
+}

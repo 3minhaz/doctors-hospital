@@ -2,12 +2,12 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 
 
-const Docters = () => {
+const Doctors = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-
     return (
+        // taking appointment information from user 
         <div className="text-center my-5">
-            <h2>please give your information to take appoinment</h2>
+            <h2>please give your information to take appointment</h2>
             <form className={"shipping-form"} onSubmit={handleSubmit()}>
                 <input className="mb-2 rounded" placeholder="your name" {...register("name")} />
                 <br />
@@ -26,4 +26,4 @@ const Docters = () => {
     );
 };
 
-export default Docters;
+export default Doctors;

@@ -6,7 +6,7 @@ import google from '../../images/Google-removebg-preview.png';
 
 
 const Login = () => {
-    const { error, setError, processLogin, signInUsingGoogle, isLoading, setIsLoading } = useAuth();
+    const { error, setError, processLogin, signInUsingGoogle, setIsLoading } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
@@ -50,7 +50,7 @@ const Login = () => {
 
 
         <div className="text-center" >
-            <h2>Log in</h2>
+            <h2 className="mt-3">Log in</h2>
             <span className="text-danger">{error}</span>
             <br />
             <form onSubmit={handleSignIn}>
@@ -62,7 +62,7 @@ const Login = () => {
                 <input className="btn btn-success mt-3" type="submit" value="Sign in" />
             </form>
             <button onClick={handleLogin} className="btn btn-white border border-2 my-3"> <span><img height="25px" src={google} alt="" /></span> Login with Google</button>
-            <p>not registered?<Link to="/register">register</Link></p>
+            <p>Not registered? <Link className="text-decoration-none" to="/register">Click to Register</Link></p>
         </div >
     );
 };

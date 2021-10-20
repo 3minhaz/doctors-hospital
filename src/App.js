@@ -7,14 +7,13 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import AuthProvider from './pages/AuthProvider/AuthProvider';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
-import Docters from './pages/Docters/Docters';
 import Services from './pages/Home/Services/Services';
 import NotFound from './pages/NotFound/NotFound';
 import Details from './pages/Details/Details';
 import Footer from './Shared/Footer/Footer';
-
 import Contact from './pages/Contact/Contact';
 import PayBill from './pages/PayBill/PayBill';
+import Doctors from './pages/Doctors/Doctors';
 
 
 function App() {
@@ -43,8 +42,8 @@ function App() {
             <Route path='/register'>
               <Register></Register>
             </Route>
-            <PrivateRoute path="/appoinment">
-              <Docters></Docters>
+            <PrivateRoute path="/appointment">
+              <Doctors></Doctors>
             </PrivateRoute>
             <PrivateRoute path="/paybill">
               <PayBill></PayBill>

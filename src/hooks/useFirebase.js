@@ -9,51 +9,35 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true)
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
+
+    //sign in using google
     const signInUsingGoogle = () => {
         setIsLoading(true)
         return signInWithPopup(auth, googleProvider)
 
     }
 
+    //registration using username and password
+
     const registerNewUser = (email, password, name) => {
         setIsLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
-
-        // .then(result => {
-        //     const user = result.user;
-        //     console.log(user);
-        //     setError('');
-        //     userName(name);
-        //     // verifyEmail()
-        // })
-        // .catch(error => {
-        //     setError('!!already registered');
-        // })
     }
 
+    //login using username and password
     const processLogin = (email, password) => {
         setIsLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
 
     }
-    // const userName = (name) => {
-    //     // const auth = getAuth();
-    //     updateProfile(auth.currentUser, { displayName: name })
-    //         .then(result => {
-
-    //         })
-    //         .catch((error) => {
-    //             // An error occurred
-    //             // ...
-    //         });
-    // }
-
+    //logout the user
     const logout = () => {
         setIsLoading(true);
         signOut(auth)
             .then(() => { })
             .finally(() => setIsLoading(false))
     }
+    //auth state
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
